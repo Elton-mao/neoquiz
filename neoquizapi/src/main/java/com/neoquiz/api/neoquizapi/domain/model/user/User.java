@@ -1,4 +1,4 @@
-package com.neoquiz.api.neoquizapi.model;
+package com.neoquiz.api.neoquizapi.domain.model.user;
 
 import java.util.Collection;
 import java.util.List;
@@ -32,21 +32,21 @@ public class User implements UserDetails{
     private String name;
     private String login; 
     private String password;
-    private UserRoles role;
-    public User (String login, String password, UserRoles roles){
+    private UserRole role;
+    public User (String login, String password, UserRole roles){
         this.login = login; 
         this.password = password;
         this.role = roles;
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(this.role == UserRoles.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"),new SimpleGrantedAuthority("ROLE_USER"));
+        if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"),
+        new SimpleGrantedAuthority("ROLE_USER"));
         else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
     @Override
     public String getUsername() {
     
-      //  throw new UnsupportedOperationException("Unimplemented method 'getUsername'");  
         return login;
     }
     @Override

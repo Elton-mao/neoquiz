@@ -1,12 +1,12 @@
-package com.neoquiz.api.neoquizapi.model;
+package com.neoquiz.api.neoquizapi.domain.model.user;
 
-public enum UserRoles {
+public enum UserRole {
 ADMIN("admin"),
 USER("user");
 
 private String role;
 
-UserRoles(String role){ 
+UserRole(String role){ 
     this.role = role; 
 }
 

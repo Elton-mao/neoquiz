@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.neoquiz.api.neoquizapi.domain.model.User;
+import com.neoquiz.api.neoquizapi.domain.model.user.User;
 import com.neoquiz.api.neoquizapi.repository.UseRepository;
 
 @RequestMapping("/user")
