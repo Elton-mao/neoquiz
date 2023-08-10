@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.neoquiz.api.neoquizapi.domain.model.user.User;
-import com.neoquiz.api.neoquizapi.repository.UseRepository;
+import com.neoquiz.api.neoquizapi.repository.UserRepository;
 
 @RequestMapping("/user")
 @RestController
 public class UserController {
     @Autowired
-    UseRepository uRepository ;
+    UserRepository uRepository ;
 
     @PostMapping
     public User userSave(@RequestBody User user){

@@ -6,12 +6,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.neoquiz.api.neoquizapi.repository.UseRepository;
+import com.neoquiz.api.neoquizapi.repository.UserRepository;
 
 @Service
 public class AuthorizationService implements UserDetailsService{
+   
     @Autowired
-    UseRepository uRepository;
+    UserRepository uRepository;
 
 
     @Override

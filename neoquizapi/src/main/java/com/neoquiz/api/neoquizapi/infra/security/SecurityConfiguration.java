@@ -1,4 +1,4 @@
-package com.neoquiz.api.neoquizapi.infra;
+package com.neoquiz.api.neoquizapi.infra.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,22 +16,24 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 
 public class SecurityConfiguration {
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         return httpSecurity 
         .csrf(csrf ->csrf.disable())
         .sessionManagement(Session -> Session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.POST,"/user").hasRole("ADMIN")
+        .authorizeHttpRequests(authorize -> authorize
+        .requestMatchers(HttpMethod.POST,"auth/login").permitAll()
+        .requestMatchers(HttpMethod.POST,"/user").hasRole("ADMIN")
         .anyRequest().authenticated())
-        
         .build();
     }
 
-@Bean
+    @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
         return authenticationConfiguration.getAuthenticationManager();
     }
-@Bean
+    @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }

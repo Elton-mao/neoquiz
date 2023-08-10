@@ -1,6 +1,6 @@
 package com.neoquiz.api.neoquizapi.domain.dto;
 
-import com.neoquiz.api.neoquizapi.domain.model.UserRoles;
+import com.neoquiz.api.neoquizapi.domain.model.user.UserRole;
 
-public record RegisterDTO(String login, String password, UserRoles roles) {
+public record RegisterDTO(String login, String password, UserRole role) {
 } 
