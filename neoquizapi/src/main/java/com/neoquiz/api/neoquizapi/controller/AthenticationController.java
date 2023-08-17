@@ -17,7 +17,7 @@ import com.neoquiz.api.neoquizapi.domain.model.user.User;
 import com.neoquiz.api.neoquizapi.repository.UserRepository;
 
 @RestController
-@RequestMapping("auth")
+@RequestMapping("/auth")
 public class AthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
