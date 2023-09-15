@@ -12,12 +12,12 @@ import com.neoquiz.api.neoquizapi.repository.UserRepository;
 public class AuthorizationService implements UserDetailsService{
    
     @Autowired
-    UserRepository uRepository;
+    UserRepository userRepository;
 
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return uRepository.findByLogin(username);
+        return userRepository.findByLogin(username);
     }
     
 }
